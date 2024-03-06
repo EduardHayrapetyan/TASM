@@ -1,0 +1,24 @@
+.model small
+.stack 256
+.data
+a db -35
+b db 32
+c db ?
+d dw ?
+.code
+;BL = C / ( b – 14 ); D = (b + 7) * AH; SI = 49; CX = -D % ( SI - 72 ); BL--; CL++; 
+main:   mov ax,@data
+ mov ds,ax
+ mov al,a
+ sub al,75
+ mov c,al
+ ; infinit loop ta idiv
+ mov bl,b
+ sub bl,14
+ mov al,c
+ idiv bl
+ mov bl,al
+ mov ah,4ch 
+ mov al,0
+ int 21h
+end main
