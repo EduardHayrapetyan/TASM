@@ -17,7 +17,7 @@ main:   mov ax,@data
  sub bl,14
  mov al,c
  idiv bl
- mov bl,al
+ mov bl,al 
  mov ah,4ch 
  mov al,0
  int 21h
